@@ -1,0 +1,39 @@
+<div class="text-center mt-1 mx-1">
+  <h6>
+    <b>{{ offSet+1 }}</b> -
+    @if(this.offSetLimit > this.results){
+      <b>{{ this.results+1 }}</b>
+    }@else{<!--Si el limite superior es mayor a los resultados, se muestra el limite superior como los resultados-->
+      <b>{{ offSetLimit }}</b>
+    }
+    de <b>{{ this.results }}</b>
+  </h6>
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <button
+        (click)="handlePagination(0)"
+        class="page-item btn btn-outline-primary"
+      >
+        Anterior
+      </button>
+
+      <select
+        #selectLimit
+        (change)="changeOptionHandler()"
+        class="form-select form-select-sm mx-1"
+      >
+        @for(option of this.options; track $index){
+
+        <option value="{{ option }}">{{ option }}</option>
+
+        }
+      </select>
+      <button
+        (click)="handlePagination(1)"
+        class="page-item btn btn-outline-primary"
+      >
+        Siguiente
+      </button>
+    </ul>
+  </nav>
+</div>

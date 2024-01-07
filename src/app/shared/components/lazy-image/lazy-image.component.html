@@ -1,0 +1,16 @@
+<img
+  class="card-img-top animate__animated animate__fadeIn animate__slower"
+  [src]="this.url"
+  [alt]="this.alt"
+  (load)="onLoad()"
+  [ngStyle]="{ display: hasLoaded ? '' : 'none' }"
+/>
+
+@if(!this.hasLoaded){
+<img src="assets/images/rings.svg"
+    alt="Loading"
+    height="35"
+    width="35"
+    class="mt-3"
+    />
+}
